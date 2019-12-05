@@ -2,7 +2,7 @@ package ru.gb.lesson_one.home;
 
 public class HomeworkOne {
     public static void main(String[] args) {
-        System.out.println(math_expression(10, 20, 40, 20));   // 220.0
+        System.out.println(math_expression(10, 20, 30, 40));   // 207.5
         System.out.println(check_sum(1, 12));                        // true
         System.out.println(check_sum(1, 9));                         // true
         System.out.println(check_sum(1, 2));                         // false
@@ -20,11 +20,11 @@ public class HomeworkOne {
 
     /*
     Написать метод вычисляющий выражение a * (b + (c / d)) и возвращающий результат с плавающей точкой,
-     де a, b, c, d – целочисленные входные параметры этого метода;
+    где a, b, c, d – целочисленные входные параметры этого метода;
      */
 
     public static float math_expression(int a, int b, int c, int d) {
-        return (float) (a * (b + (c / d)));
+        return (a * (b + (c / (d * 1f))));
     }
 
     /*
@@ -43,12 +43,8 @@ public class HomeworkOne {
     Замечание: ноль считаем положительным числом. Результат работы метода вывести в консоль
     */
 
-    public static String is_positive(int a) {
-        if (a >= 0) {
-            return a + " - положительное число";
-        } else {
-            return a + " - отрицательное число";
-        }
+    public static boolean is_positive(int a) {
+        return  (a >= 0);
     }
 
     /*
@@ -66,11 +62,7 @@ public class HomeworkOne {
     Для проверки работы вывести результаты работы метода в консоль
      */
 
-    public static String is_regular_year(int year) {
-        if (year % 4 == 0 && year % 100 != 0 || year % 400 == 0) {
-            return year + " - високосный год";
-        } else {
-            return year + " - не високосный год";
-        }
+    public static boolean is_regular_year(int year) {
+        return (year % 4 == 0 && year % 100 != 0 || year % 400 == 0);
     }
 }
