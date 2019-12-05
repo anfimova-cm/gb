@@ -2,20 +2,20 @@ package ru.gb.lesson_one.home;
 
 public class HomeworkOne {
     public static void main(String[] args) {
-        System.out.println(ex_one(10, 20, 40, 20));      // 220.0
-        System.out.println(ex_two(1, 12));                      // true
-        System.out.println(ex_two(1, 9));                       // true
-        System.out.println(ex_two(1, 2));                       // false
-        System.out.println(ex_two(11, 12));                     // false
-        ex_three(10);                                               // +
-        ex_three(0);                                                // +
-        ex_three(-10);                                              // -
-        ex_four("Пётр");
-        ex_four("Иван");
-        ex_five(2001);                                            // не високосный
-        ex_five(2004);                                            // високосный
-        ex_five(2100);                                            // не високосный
-        ex_five(2400);                                            // високосный
+        System.out.println(math_expression(10, 20, 40, 20));   // 220.0
+        System.out.println(check_sum(1, 12));                        // true
+        System.out.println(check_sum(1, 9));                         // true
+        System.out.println(check_sum(1, 2));                         // false
+        System.out.println(check_sum(11, 12));                       // false
+        System.out.println(is_positive(10));                            // +
+        System.out.println(is_positive(0));                             // +
+        System.out.println(is_positive(-10));                           // -
+        System.out.println(greeting("Пётр"));
+        System.out.println(greeting("Иван"));
+        System.out.println(is_regular_year(2001));                         // не високосный
+        System.out.println(is_regular_year(2004));                         // високосный
+        System.out.println(is_regular_year(2100));                         // не високосный
+        System.out.println(is_regular_year(2400));                         // високосный
     }
 
     /*
@@ -23,8 +23,8 @@ public class HomeworkOne {
      де a, b, c, d – целочисленные входные параметры этого метода;
      */
 
-    public static float ex_one(int a, int b, int c, int d) {
-        return a * (b + (c / d));
+    public static float math_expression(int a, int b, int c, int d) {
+        return (float) (a * (b + (c / d)));
     }
 
     /*
@@ -33,12 +33,8 @@ public class HomeworkOne {
     если да – вернуть true, в противном случае – false;
      */
 
-    public static boolean ex_two(int a, int b) {
-        if ((a + b) >= 10 && (a + b) <= 20) {
-            return true;
-        } else {
-            return false;
-        }
+    public static boolean check_sum(int a, int b) {
+        return ((a + b) >= 10 && (a + b) <= 20);
     }
 
     /*
@@ -47,11 +43,11 @@ public class HomeworkOne {
     Замечание: ноль считаем положительным числом. Результат работы метода вывести в консоль
     */
 
-    public static void ex_three(int a) {
+    public static String is_positive(int a) {
         if (a >= 0) {
-            System.out.println(a + " - положительное число");
+            return a + " - положительное число";
         } else {
-            System.out.println(a + " - отрицательное число");
+            return a + " - отрицательное число";
         }
     }
 
@@ -60,8 +56,8 @@ public class HomeworkOne {
     метод должен вернуть приветственное сообщение «Привет, переданное_имя!»; Вывести приветствие в консоль.
     */
 
-    public static void ex_four(String name) {
-        System.out.println("Привет, " + name + "!");
+    public static String greeting(String name) {
+        return "Привет, " + name + "!";
     }
 
     /*
@@ -70,11 +66,11 @@ public class HomeworkOne {
     Для проверки работы вывести результаты работы метода в консоль
      */
 
-    public static void ex_five(int year) {
+    public static String is_regular_year(int year) {
         if (year % 4 == 0 && year % 100 != 0 || year % 400 == 0) {
-            System.out.println(year + " - високосный год");
+            return year + " - високосный год";
         } else {
-            System.out.println(year + " - не високосный год");
+            return year + " - не високосный год";
         }
     }
 }
