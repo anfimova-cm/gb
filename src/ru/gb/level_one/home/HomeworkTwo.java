@@ -9,7 +9,7 @@ public class HomeworkTwo {
         System.out.println(Arrays.toString(doubleLessSix()));
         System.out.println(Arrays.toString(searchMinAndMax()));
         fillDiagonal(5);
-        System.out.println(Arrays.toString(offset(new int[] {1, 5, 3, 2, 11, 4, 5, 2, 4, 8, 9, 1}, -5)));
+        System.out.println(Arrays.toString(offset(new int[] {1, 5, 3, 2, 11, 4, 5, 2, 4, 8, 9, 1}, -15)));
     }
 
     /*
@@ -105,19 +105,17 @@ public class HomeworkTwo {
     при этом метод должен циклически сместить все элементы массива на n позиций.
     */
 
-    /*
-    С n < 0 и n > arr.length не получилось
-     */
-
     public static int[] offset(int[] arr, int n) {
         int[] offsetArr = new int[arr.length];
         for (int i = 0; i < arr.length; i ++) {
             if (n >= 0) {
+                while (n > arr.length) n = n - arr.length;
                 if ((i + n) < arr.length) offsetArr[i] = arr[i + n];
                 else offsetArr[i] = arr[i + n - arr.length];
             }
             if (n < 0) {
                 int nPositive = -n;
+                while (nPositive > arr.length) nPositive = nPositive - arr.length;
                 if (i < nPositive) offsetArr[i] = arr[arr.length - nPositive + i];
                 else offsetArr[i] = arr[i - nPositive];
             }
