@@ -9,7 +9,7 @@ public class HomeworkTwo {
         System.out.println(Arrays.toString(doubleLessSix()));
         System.out.println(Arrays.toString(searchMinAndMax()));
         fillDiagonal(5);
-        System.out.println(Arrays.toString(offset(new int[] {1, 5, 3, 2, 11, 4, 5, 2, 4, 8, 9, 1}, 2)));
+        System.out.println(Arrays.toString(offset(new int[] {1, 5, 3, 2, 11, 4, 5, 2, 4, 8, 9, 1}, -5)));
     }
 
     /*
@@ -116,10 +116,11 @@ public class HomeworkTwo {
                 if ((i + n) < arr.length) offsetArr[i] = arr[i + n];
                 else offsetArr[i] = arr[i + n - arr.length];
             }
-//            if (n < 0) {
-//                if ((i - n) < arr.length)  offsetArr[i] = arr[arr.length + n + i];
-//                else offsetArr[i] = arr[i - n - arr.length];
-//            }
+            if (n < 0) {
+                int nPositive = -n;
+                if (i < nPositive) offsetArr[i] = arr[arr.length - nPositive + i];
+                else offsetArr[i] = arr[i - nPositive];
+            }
         }
         return offsetArr;
     }
