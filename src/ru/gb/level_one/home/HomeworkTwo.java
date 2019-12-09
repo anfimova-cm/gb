@@ -4,11 +4,12 @@ import java.util.Arrays;
 
 public class HomeworkTwo {
     public static void main(String[] args) {
-        System.out.println(Arrays.toString(replaceOneAndZero()));
+        System.out.println(Arrays.toString(replaceOneAndZero(new int[] {1, 1, 0, 0, 1, 0, 1, 1, 0, 0})));
         System.out.println(Arrays.toString(fillArray()));
         System.out.println(Arrays.toString(doubleLessSix()));
         System.out.println(Arrays.toString(searchMinAndMax()));
         fillDiagonal(5);
+//        System.out.println(checkBalance(new int[] {10, 1, 2, 3, 4}));
         System.out.println(Arrays.toString(offset(new int[] {1, 5, 3, 2, 11, 4, 5, 2, 4, 8, 9, 1}, -15)));
     }
 
@@ -18,8 +19,7 @@ public class HomeworkTwo {
     Написать метод, заменяющий в принятом массиве 0 на 1, 1 на 0;
     */
 
-    public static int[] replaceOneAndZero() {
-        int[] arr = {1, 1, 0, 0, 1, 0, 1, 1, 0, 0};
+    public static int[] replaceOneAndZero(int[] arr) {
         for (int i = 0; i < arr.length; i ++) {
             if (arr[i] == 1) arr[i] = 0;
                 else arr[i] = 1;
@@ -35,7 +35,7 @@ public class HomeworkTwo {
     public static int[] fillArray() {
         int[] arr = new int[8];
         for (int i = 1; i < arr.length; i ++) {
-            arr[0] = 1;
+            arr[0] = 1;                         // попробовать реализовать без вспомогательного присваивания
             arr[i] = arr[i - 1] + 3;
         }
         return arr;
@@ -50,7 +50,7 @@ public class HomeworkTwo {
         int[] arr = {1, 5, 3, 2, 11, 4, 5, 2, 4, 8, 9, 1};
         for (int i = 0; i < arr.length; i ++) {
             if (arr[i] < 6) arr[i] *= 2;
-                else arr[i] = arr[i];
+                else arr[i] = arr[i];           // лишнее присваивание элемента самому себе
         }
         return arr;
     }
@@ -71,7 +71,7 @@ public class HomeworkTwo {
             if (arr[i] > max) max = arr[i];
             else min = arr[i];
         }
-        return new int[] {min, max};
+        return new int[] {min, max};            // разделить на два метода
     }
 
     /*
@@ -82,8 +82,8 @@ public class HomeworkTwo {
     public static int[][] fillDiagonal(int a) {
         int[][] arr = new int[a][a];
         for (int i = 0; i < a; i ++) {
-            for (int j = 0; j < a; j ++) {
-                if (i == j) arr[i][j] = 1;
+            for (int j = 0; j < a; j ++) {      // попробовать написать это одним циклом
+                if (i == j) arr[i][j] = 1;      // не нарисуется вторая диагональ
                 System.out.print(arr[i][j] + " ");
             }
             System.out.println();
@@ -99,11 +99,19 @@ public class HomeworkTwo {
     Абстрактная граница показана символами ||, эти символы в массив не входят.
     */
 
+//    public static boolean checkBalance(int[] arr) {
+//        for (int i = 0; i < arr.length; i ++) {
+//
+//        }
+//    }
+
     /*
     7 Написать метод, которому на вход подаётся одномерный массив и число n
     (может быть положительным, или отрицательным),
     при этом метод должен циклически сместить все элементы массива на n позиций.
     */
+
+    // попробовать написать без веток иф-элс, единым не дублирующимся алгоритмом
 
     public static int[] offset(int[] arr, int n) {
         int[] offsetArr = new int[arr.length];
