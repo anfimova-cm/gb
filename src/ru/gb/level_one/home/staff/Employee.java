@@ -21,8 +21,11 @@ public class Employee {
     private int salary;
     private int age;
 
+    // я конечно написала, но не ожидала, что так сработает
     public Employee() {
-        setId(0);
+        int id = 0;
+        int uid = ++id;
+        setId(uid);
     }
 
     public Employee(String name, String surname, String position, long phone, int salary, int age) {
@@ -71,10 +74,9 @@ public class Employee {
         this.salary = salary;
     }
 
-    public int raiseSalary(int amount) {
+    public void raiseSalary(int amount) {
         int salary = getSalary() + amount;
         setSalary(salary);
-        return salary;
     }
 
 }
