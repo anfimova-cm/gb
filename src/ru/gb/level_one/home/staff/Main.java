@@ -1,7 +1,5 @@
 package ru.gb.level_one.home.staff;
 
-import java.util.Arrays;
-
 public class Main {
 
     public static void main(String[] args) {
@@ -21,6 +19,7 @@ public class Main {
                 78889997766L, 10000, 45);
         employees[4] = new Employee("Анатолий", "Романов", "специалист",
                 78889997766L, 10000, 50);
+
         System.out.println("Сотрудники старше 40: ");
         for (int i = 0; i < employees.length; i++) {
             if (employees[i].getAge() > 40)
@@ -28,18 +27,25 @@ public class Main {
                         + employees[i].getAge());
         }
 
-        System.out.println("Сотрудники старше 45 с повышенной зп");
+        System.out.println("Сотрудники старше 45 с повышенной зп:");
         for (int i = 0; i < employees.length; i++) {
             if (employees[i].getAge() > 45) {
-//                employees[i].raiseSalary(10000);
-                int salary = employees[i].getSalary() + 10000;
-                employees[i].setSalary(salary);
-                System.out.println(employees[i].getName() + " " + employees[i].getSurname() + ", "
+                System.out.println("Было: " + employees[i].getName() + " " + employees[i].getSurname() + ", "
+                        + employees[i].getAge() + ", " + employees[i].getSalary());
+                employees[i].raiseSalary(5000);
+                System.out.println("Стало: " + employees[i].getName() + " " + employees[i].getSurname() + ", "
                         + employees[i].getAge() + ", " + employees[i].getSalary());
             }
         }
 
-        Employee employeeId = new Employee(1, "Светлана");
+        // как это вынести в отдельный метод не придумала
+        System.out.println("Добавить уникальные id:");
+        for (int i = 0; i < employees.length; i++) {
+            int id = employees[i].getId() + i;
+            employees[i].setId(id);
+            System.out.println(employees[i].getId() + ". " + employees[i].getName());
+            }
+
     }
 
 }

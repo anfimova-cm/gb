@@ -21,7 +21,12 @@ public class Employee {
     private int salary;
     private int age;
 
+    public Employee() {
+        setId(0);
+    }
+
     public Employee(String name, String surname, String position, long phone, int salary, int age) {
+        this();
         this.name = name;
         this.surname = surname;
         this.position = position;
@@ -30,9 +35,8 @@ public class Employee {
         this.age = age;
     }
 
-    public Employee(int id, String name) {
-        this.id = id;
-        this.name = name;
+    public int getId() {
+        return id;
     }
 
     public String getName() {
@@ -57,6 +61,10 @@ public class Employee {
 
     public int getAge() {
         return age;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public void setSalary(int salary) {
