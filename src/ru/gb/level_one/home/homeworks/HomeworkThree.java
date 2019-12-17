@@ -1,4 +1,4 @@
-package ru.gb.level_one.home;
+package ru.gb.level_one.home.homeworks;
 
 import java.util.Random;
 import java.util.Scanner;
@@ -11,8 +11,6 @@ public class HomeworkThree {
     * Попробовать переписать логику проверки победы, чтобы она работала для поля 5х5 и количества фишек 4
     *** Доработать искусственный интеллект, чтобы он мог блокировать ходы игрока, и пытаться выиграть сам
     */
-
-    // Всё, что смогла - переписать checkWin с тремя if
 
     private static final char DOT_HUMAN = 'X';
     private static final char DOT_AI = '0';
@@ -80,13 +78,12 @@ public class HomeworkThree {
             x = RANDOM.nextInt(fieldSizeX);
             y = RANDOM.nextInt(fieldSizeY);
         } while (!isEmptyCell(x, y));
-        field[x][y] = DOT_AI;
+        field[y][x] = DOT_AI;
     }
 
     private static boolean checkWin(char c) {
         for (int y = 0; y < fieldSizeY; y++) {
             for (int x = 0; x < fieldSizeX; x++) {
-                // Заменила условия по строкам и столбцам вида field[x][0] == c || field[x][1] == c || field[x][2] == c
                 for (int index = 0; index < fieldSizeX; index++) {
                     if (field[x][index] == c || field[index][y] == c)
                         break;

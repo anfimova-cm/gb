@@ -1,4 +1,4 @@
-package ru.gb.level_one.home;
+package ru.gb.level_one.home.homeworks;
 
 public class HomeworkOne {
     public static void main(String[] args) {

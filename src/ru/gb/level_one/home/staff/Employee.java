@@ -21,11 +21,9 @@ public class Employee {
     private int salary;
     private int age;
 
-    // я конечно написала, но не ожидала, что так сработает
     public Employee() {
-        int id = 0;
-        int uid = ++id;
-        setId(uid);
+        int id = getId();
+        setId(id);
     }
 
     public Employee(String name, String surname, String position, long phone, int salary, int age) {

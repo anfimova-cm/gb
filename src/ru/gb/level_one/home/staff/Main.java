@@ -40,8 +40,8 @@ public class Main {
 
         System.out.println("Добавить уникальные id:");
         for (int i = 0; i < employees.length; i++) {
-            int id = employees[i].getId() + i;
-            employees[i].setId(id);
+//            int id = employees[i].getId() + i;
+//            employees[i].setId(id);
             System.out.println(employees[i].getId() + ". " + employees[i].getName());
             }
 
