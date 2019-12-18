@@ -7,7 +7,11 @@ public class Animal {
     public double swimMax;
     public double jumpMax;
 
-    public Animal (String name, double runMax, double swimMax, double jumpMax) {
+    public Animal(String name) {
+        this.name = name;
+    }
+
+    public Animal(String name, double runMax, double swimMax, double jumpMax) {
         this.name = name;
         this.runMax = runMax;
         this.swimMax = swimMax;
