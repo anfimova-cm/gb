@@ -19,12 +19,16 @@ public class Main {
 
     public static void main(String[] args) {
 
-        Cat cat = new Cat("Vas'ka", 200, 0, 2);
-        Dog dog = new Dog("Sharik", 500, 10, 0.5);
-        Bird bird = new Bird("Sinichka", 5, 0, 0.2);
-        Horse horse = new Horse("Marfa", 1500, 100, 3);
+        Cat cat = new Cat("Vasiliy", 400, 0, 2);
+        Cat catDef = new Cat("Tishka");
+        Dog dog = new Dog("Sharik", 300, 15, 1.5);
+        Dog dogDef = new Dog("Barbos");
+        Bird bird = new Bird("Sinichka", 3, 0, 0.3);
+        Bird birdDef = new Bird("Grisha");
+        Horse horse = new Horse("Marfa", 1200, 120, 2);
+        Horse horseDef = new Horse("Poloniy");
 
-        Animal[] zoo = {cat, dog, bird, horse};
+        Animal[] zoo = {cat, catDef, dog, dogDef, bird, birdDef, horse, horseDef};
 
         for (int i = 0; i < zoo.length; i ++) {
             zoo[i].run(300);
@@ -34,10 +38,10 @@ public class Main {
 
         for (int i = 0; i < zoo.length; i++) {
         if (zoo[i] instanceof Cat) {
-            cat.run(0.5);
+            ((Cat) zoo[i]).run(0.5);
             }
         if (zoo[i] instanceof Bird) {
-            bird.jump(0.1);
+            ((Bird) zoo[i]).jump(0.1);
             }
         }
 
